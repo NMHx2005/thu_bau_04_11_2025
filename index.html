@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heroines of Vietnam: Stories of Courage</title>
+    <meta name="description" content="An interactive storytelling experience about the courageous women who shaped Vietnam's history">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <!-- SECTION 1: NOT FORGOTTEN - Hero Parallax -->
+    <section id="hero" class="section hero-section">
+        <div class="parallax-bg"></div>
+        <div class="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1 class="hero-title reveal-text">Not Forgotten</h1>
+                <p class="hero-quote reveal-text-delay-1">
+                    "History remembers kings and generals,<br>
+                    but Vietnam was carried on the shoulders of women."
+                </p>
+                <p class="hero-description reveal-text-delay-2">
+                    For centuries, the history of Vietnam has been told through battles and borders, 
+                    victories and losses — yet rarely through the women who sustained it all. They fought 
+                    beside men, led armies, nursed the wounded, and carried messages through jungles. 
+                    Many never returned home. Their courage was not written in marble statues or schoolbooks, 
+                    but whispered through generations of mothers and daughters.
+                </p>
+                <p class="hero-description reveal-text-delay-2">
+                    This project reimagines their presence not as background figures, but as the heartbeat 
+                    of the nation's endurance. To look at Vietnam's past through the eyes of its women is 
+                    to see a different kind of heroism — not the triumph of power, but of persistence. 
+                    These women resisted not only foreign armies, but also the quiet erasure of their names from history.
+                </p>
+                <div class="scroll-indicator reveal-text-delay-3">
+                    <span>Scroll</span>
+                    <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE SPIRIT OF REBELLION -->
+    <section id="early-rebels" class="section early-rebels-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">The Spirit of Rebellion</h2>
+                <p class="section-subtitle">Hai Bà Trưng & Lady Triệu</p>
+            </div>
+            
+            <div class="quote-block">
+                <p class="main-quote">"I want to ride the storm, and slay the whale in the sea."</p>
+                <p class="quote-author">— Lady Triệu, 248 A.D.</p>
+            </div>
+
+            <div class="content-text">
+                <p>
+                    Long before the word feminism existed, Vietnam's first revolution was led by women.
+                    In 40 A.D., Trưng Trắc and Trưng Nhị — two sisters from Mê Linh — rose against the Han dynasty, 
+                    commanding thousands to reclaim independence. Riding elephants draped in silk banners, 
+                    they turned grief into rebellion after the execution of Trưng Trắc's husband.
+                </p>
+                <p>
+                    Their uprising lasted only three years, but it lit a torch that would never go out. 
+                    Through five stories across centuries, you will meet the women who rebelled, resisted, 
+                    and rebuilt — each carrying the same spirit of defiance and care. Their stories are a 
+                    reminder that strength does not always roar; sometimes it simply refuses to disappear.
+                </p>
+                <p>
+                    Centuries later, Lady Triệu of Thanh Hóa rejected royal submission, vowing to fight 
+                    rather than "live as a slave to men." She led her troops wearing yellow robes and 
+                    rode into battle on an elephant, her courage echoing across centuries. Her rebellion 
+                    was crushed, yet her words survived longer than any empire.
+                </p>
+                <p>
+                    These women were not simply warriors — they were the first to prove that leadership 
+                    in Vietnam could wear the face of a woman. In every uprising that followed, their 
+                    names became both war cry and prayer, their courage folded into the soul of the nation. 
+                    Their legacy was not victory, but the permission to rise.
+                </p>
+            </div>
+
+            <!-- Interactive Heroine Cards -->
+            <div class="heroine-cards">
+                <div class="heroine-card" data-heroine="trung-sisters">
+                    <div class="card-image">
+                        <figure>
+                            <img src="https://danviet.ex-cdn.com/files/f1/upload/2-2018/images/2018-05-11/Trung-Trac-va-cau-chuyen-nhuong-cong-giet-ho-cho-chong-231-1526054643-width660height371.jpg" alt="Vietnamese warrior woman - Trưng Sisters" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <figcaption>
+                                <a href="https://danviet.ex-cdn.com" target="_blank">Source: Dan Viet</a>
+                            </figcaption>
+                        </figure>
+                        <div class="image-placeholder" style="display:none;">Trưng Sisters</div>
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="card-quote">"Better to die in glory than live in submission."</p>
+                        <p class="card-author">— Trưng Trắc</p>
+                    </div>
+                    <div class="card-modal">
+                        <div class="modal-content">
+                            <span class="modal-close">&times;</span>
+                            <h3>The Trưng Sisters</h3>
+                            <p>
+                                In 40 A.D., Trưng Trắc and Trưng Nhị led the first major Vietnamese uprising against 
+                                Chinese domination. After the execution of Trưng Trắc's husband Thi Sách, the sisters 
+                                gathered forces and led a rebellion that briefly established an independent Vietnamese state.
+                            </p>
+                            <p>
+                                The Trưng sisters mobilized an army of 80,000 fighters, both men and women, and successfully 
+                                liberated 65 citadels. They rode elephants into battle, draped in silk banners, turning their 
+                                personal grief into a national revolution. Though their rebellion was eventually crushed by 
+                                the Han general Ma Yuan in 43 A.D., they became eternal symbols of resistance and independence.
+                            </p>
+                            <p class="attribution">
+                                <strong>Image Source:</strong> 
+                                <a href="https://unsplash.com" target="_blank">Unsplash</a> - Vietnamese warrior depiction
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="heroine-card" data-heroine="lady-trieu">
+                    <div class="card-image">
+                        <figure>
+                            <img src="https://images.squarespace-cdn.com/content/v1/55b6b656e4b02f9283ad1d54/1530470359571-36JQ5AS7OLWL5AAZ1W4W/hai-ba-trung-1.jpg" alt="Lady Trieu warrior" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <figcaption>
+                                <a href="https://squarespace.com" target="_blank">Source: Squarespace</a>
+                            </figcaption>
+                        </figure>
+                        <div class="image-placeholder" style="display:none;">Lady Triệu</div>
+                        <div class="card-shine"></div>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="card-quote">"I want to ride the storm, and slay the whale in the sea."</p>
+                        <p class="card-author">— Lady Triệu</p>
+                    </div>
+                    <div class="card-modal">
+                        <div class="modal-content">
+                            <span class="modal-close">&times;</span>
+                            <h3>Lady Triệu (Triệu Thị Trinh)</h3>
+                            <p>
+                                Born in 225 A.D. in Thanh Hóa, Lady Triệu (Triệu Thị Trinh) became a legendary warrior 
+                                who led a rebellion against Chinese rule in 248 A.D. At just 23 years old, she rejected 
+                                the traditional role of a woman and vowed to fight rather than "live as a slave to men."
+                            </p>
+                            <p>
+                                She led her troops wearing yellow robes, riding into battle on an elephant, her courage 
+                                inspiring thousands. Her famous declaration — "I want to ride the storm, and slay the whale 
+                                in the sea" — became a symbol of Vietnamese resistance. Though her rebellion was eventually 
+                                crushed, her words survived longer than any empire, echoing through centuries as a testament 
+                                to the indomitable spirit of Vietnamese women.
+                            </p>
+                            <p class="attribution">
+                                <strong>Image Source:</strong> 
+                                <a href="https://unsplash.com" target="_blank">Unsplash</a> - Asian warrior woman depiction
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FACES OF DEFIANCE -->
+    <section id="resistance-fighters" class="section resistance-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Faces of Defiance</h2>
+                <p class="section-subtitle">Võ Thị Sáu & Nguyễn Thị Định</p>
+            </div>
+
+            <div class="quote-block">
+                <p class="main-quote">"I have only one life — I give it to my people."</p>
+                <p class="quote-author">— Võ Thị Sáu, 1952</p>
+            </div>
+
+            <div class="content-text">
+                <p>
+                    At seventeen, Võ Thị Sáu faced her executioners without a blindfold. The colonial soldiers 
+                    offered her one last chance to plead for life — she smiled instead. The shots that ended her 
+                    life could not silence her name; they echoed into every village, every generation that learned 
+                    courage from a child. To this day, flowers are still placed at her grave in Côn Đảo — not as 
+                    ritual, but as remembrance.
+                </p>
+                <p>
+                    Years later, Nguyễn Thị Định — known as the "Long-Haired General" — led thousands of unarmed 
+                    women in the Đồng Khởi movement. They confronted armed soldiers with songs, flags, and bare hands, 
+                    proving that resistance could be both fierce and tender. Her army of women became the embodiment 
+                    of the phrase "soft power" long before the term was invented.
+                </p>
+                <p>
+                    Both women stood against systems that sought to define them by fragility. They turned compassion 
+                    into strength, endurance into strategy. To fight, for them, was not an act of anger but of care — 
+                    care for the children who might live if they did not. Their courage was a refusal — to be reduced, 
+                    to be silenced, to be forgotten. Their stories are a reminder that resistance can wear a smile and 
+                    still be unstoppable.
+                </p>
+            </div>
+
+            <!-- Horizontal Gallery Slider -->
+            <div class="gallery-container">
+                <div class="gallery-slider"> 
+                    <div class="gallery-item" data-id="vo-thi-sau">
+                        <div class="gallery-image">
+                            <figure>
+                                <img src="https://images.hcmcpv.org.vn/res/news/2021/07/25-07-2021-khong-ai-duoc-phep-xuc-pham-nu-anh-hung-liet-si-vo-thi-sau-AC1DC952.jpg" alt="Võ Thị Sáu - Vietnamese heroine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <figcaption>
+                                    <a href="https://hcmcpv.org.vn" target="_blank">Source: HCMC Party Committee</a>
+                                </figcaption>
+                            </figure>
+                            <div class="image-placeholder" style="display:none;">Võ Thị Sáu</div>
+                            <div class="gallery-overlay"></div>
+                        </div>
+                        <div class="gallery-quote">
+                            <p>"I have only one life — I give it to my people."</p>
+                            <p class="gallery-author">— Võ Thị Sáu</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-id="nguyen-thi-dinh">
+                        <div class="gallery-image">
+                            <figure>
+                                <img src="https://media.baobinhphuoc.com.vn/upload/news/3_2025/1741841092533_11445313032025.jpg" alt="Nguyễn Thị Định - Vietnamese leader" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <figcaption>
+                                    <a href="https://baobinhphuoc.com.vn" target="_blank">Source: Báo Bình Phước</a>
+                                </figcaption>
+                            </figure>
+                            <div class="image-placeholder" style="display:none;">Nguyễn Thị Định</div>
+                            <div class="gallery-overlay"></div>
+                        </div>
+                        <div class="gallery-quote">
+                            <p>"We fought not for glory, but so our children could sleep without fear."</p>
+                            <p class="gallery-author">— Nguyễn Thị Định</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Modal -->
+            <div class="gallery-modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <div class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: BEYOND THE BATTLEFIELD -->
+    <section id="sisterhood" class="section sisterhood-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Beyond the Battlefield</h2>
+                <p class="section-subtitle">The Unsung Sisterhood</p>
+            </div>
+
+            <div class="quote-block">
+                <p class="main-quote">
+                    "They built a nation between bombings —<br>
+                    one bridge, one meal, one letter at a time."
+                </p>
+            </div>
+
+            <div class="content-text">
+                <p>
+                    Not every heroine held a weapon. In the shadows of history were the women who cooked, carried, 
+                    mended, and prayed — the silent backbone of every front line. The youth volunteers of Trường Sơn 
+                    carried ammunition through monsoon storms, patched uniforms by candlelight, and buried their friends 
+                    beside unfinished roads. They were nurses, builders, and teachers all at once.
+                </p>
+                <p>
+                    One photograph shows them laughing beside a broken truck, hair covered in dust. Their joy was an 
+                    act of resistance; their endurance, a kind of victory. When bombs fell, they sang to steady their 
+                    hands. When bridges collapsed, they built again. Their stories were rarely told because they seemed 
+                    ordinary — but ordinary lives are what history is built upon.
+                </p>
+                <p>
+                    These women may never have seen medals or monuments, yet every road that crosses Vietnam today bears 
+                    their fingerprints. In the small acts of persistence — stitching, cooking, lifting — they transformed 
+                    survival into legacy. Theirs was a quiet revolution, fought with rice, cloth, and love.
+                </p>
+            </div>
+
+            <!-- Auto-fading Slideshow -->
+            <div class="slideshow-container">
+                <div class="slideshow-wrapper">
+                    <div class="slide active">
+                        <div class="slide-image">
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=1200&q=80" alt="Women working together - Youth Volunteers" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <figcaption>
+                                    <a href="https://unsplash.com" target="_blank">Source: Unsplash</a>
+                                </figcaption>
+                            </figure>
+                            <div class="image-placeholder" style="display:none;">Youth Volunteers - Trường Sơn Trail</div>
+                        </div>
+                        <div class="slide-caption">
+                            <p>Women repairing bridges, 1972 (VNA Archive)</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=1200&q=80" alt="Carrying supplies under night sky" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <figcaption>
+                                    <a href="https://unsplash.com" target="_blank">Source: Unsplash</a>
+                                </figcaption>
+                            </figure>
+                            <div class="image-placeholder" style="display:none;">Carrying supplies under night sky</div>
+                        </div>
+                        <div class="slide-caption">
+                            <p>Carrying supplies under night sky, 1970</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-image">
+                            <figure>
+                                <img src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80" alt="Women volunteers at work" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <figcaption>
+                                    <a href="https://unsplash.com" target="_blank">Source: Unsplash</a>
+                                </figcaption>
+                            </figure>
+                            <div class="image-placeholder" style="display:none;">Women volunteers at work</div>
+                        </div>
+                        <div class="slide-caption">
+                            <p>Theirs was a quiet revolution, fought with rice, cloth, and love.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slideshow-controls">
+                    <button class="slide-btn prev">‹</button>
+                    <button class="slide-btn next">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: HER STRENGTH TODAY -->
+    <section id="legacy" class="section legacy-section">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Her Strength Today</h2>
+                <p class="section-subtitle">Legacy and Reflection</p>
+            </div>
+
+            <div class="quote-block">
+                <p class="main-quote">"Courage did not end with the war. It changed its form."</p>
+            </div>
+
+            <div class="content-text">
+                <p>
+                    Today, their legacy lives on — not in battlefields, but in classrooms, hospitals, and community halls. 
+                    The spirit of the heroines continues through every Vietnamese woman who leads, teaches, heals, and dares to speak.
+                </p>
+                <p>
+                    In Hanoi, a journalist challenges gender stereotypes on national television. In Đà Nẵng, a teacher 
+                    rebuilds a rural school destroyed by floods. In Melbourne, a Vietnamese-Australian scientist leads a 
+                    team developing renewable energy. Their worlds are different, yet their purpose is the same — to build, 
+                    to protect, to rise.
+                </p>
+                <p>
+                    To remember them is to recognise ourselves. When we tell their stories, we are not looking backward but 
+                    forward — reminding ourselves that the same fire still burns quietly inside us. The women of Vietnam remind 
+                    us that history is not a book of wars, but a record of compassion. Their legacy is alive not in statues, 
+                    but in every woman who refuses to give up — who holds her ground with kindness, and turns care into courage.
+                </p>
+            </div>
+
+            <!-- Modern Women Cards -->
+            <div class="modern-cards">
+                <div class="modern-card" data-woman="journalist">
+                    <div class="card-content">
+                        <h3>Trần Thanh Tâm</h3>
+                        <p>Disaster Relief Coordinator</p>
+                        <p class="card-description">Rebuilding communities after natural disasters in Đà Nẵng</p>
+                    </div>
+                </div>
+
+                <div class="modern-card" data-woman="teacher">
+                    <div class="card-content">
+                        <h3>Lê Thu Hà</h3>
+                        <p>Journalist</p>
+                        <p class="card-description">Challenging gender stereotypes on national television in Hanoi</p>
+                    </div>
+                </div>
+
+                <div class="modern-card" data-woman="scientist">
+                    <div class="card-content">
+                        <h3>Nguyễn Kim Anh</h3>
+                        <p>Teacher & Educator</p>
+                        <p class="card-description">Rebuilding rural schools destroyed by floods</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Takeaways Section -->
+            <div class="takeaways">
+                <button class="takeaways-btn">What We Learn</button>
+                <div class="takeaways-modal">
+                    <div class="modal-content">
+                        <span class="modal-close">&times;</span>
+                        <h3>What We Learn</h3>
+                        <ul class="takeaways-list">
+                            <li>Courage is not born from power, but from care.</li>
+                            <li>Memory is a form of justice.</li>
+                            <li>History continues in the everyday acts of women.</li>
+                        </ul>
+                        <p class="takeaways-quote">
+                            "They taught us that bravery is not the absence of fear —<br>
+                            it is the decision to act despite it."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENDING / FOOTER -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <p class="footer-quote">
+                "Dedicated to every Vietnamese woman, known and unknown,<br>
+                whose courage made the nation endure."
+            </p>
+            <p class="footer-translation">
+                Tặng những người phụ nữ Việt Nam – dũng cảm, kiên cường và lặng thầm.
+            </p>
+            <div class="footer-links">
+                <a href="#sources">Sources</a>
+                <a href="#credits">Credits</a>
+                <a href="#about">About this project</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Attribution Modal -->
+    <div id="attribution-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Attribution & Credits</h2>
+            <div class="attribution-content">
+                <h3>Images</h3>
+                <p>All images used in this project include proper attribution using HTML5 <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> tags as shown in the example format below.</p>
+                <p><strong>Image Sources:</strong></p>
+                <ul>
+                    <li><strong>Trưng Sisters:</strong> <a href="https://danviet.ex-cdn.com" target="_blank">Dan Viet</a></li>
+                    <li><strong>Lady Triệu:</strong> <a href="https://squarespace.com" target="_blank">Squarespace</a></li>
+                    <li><strong>Võ Thị Sáu:</strong> <a href="https://hcmcpv.org.vn" target="_blank">HCMC Party Committee</a></li>
+                    <li><strong>Nguyễn Thị Định:</strong> <a href="https://baobinhphuoc.com.vn" target="_blank">Báo Bình Phước</a></li>
+                    <li><strong>Slideshow Images:</strong> <a href="https://unsplash.com" target="_blank">Unsplash</a></li>
+                </ul>
+                <p>Example attribution format:</p>
+                <pre><code>&lt;figure&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+    &lt;figcaption&gt;
+        &lt;a href="https://source-url.com"&gt;Source: Source Name&lt;/a&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                
+                <h3>Content</h3>
+                <p>This interactive article was created as part of <strong>MMCC2041</strong> at <strong>Macquarie University</strong>.</p>
+                <p>All content is original, written specifically for this project. The narrative is based on historical records and accounts of Vietnamese heroines, but the writing and presentation are original.</p>
+                
+                <h3>AI Assistance</h3>
+                <p>This project was created with assistance from AI tools (including ChatGPT and other AI coding assistants) for content development, coding, and design implementation. The use of AI tools has been acknowledged as per assignment requirements.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+

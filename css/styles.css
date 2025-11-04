@@ -1,0 +1,1490 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    background: #1E1E1E;
+}
+
+/* ============================================
+   SECTION BASE STYLES
+   ============================================ */
+.section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+.section-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+/* ============================================
+   SECTION 1: HERO / NOT FORGOTTEN
+   ============================================ */
+.hero-section {
+    background: #1E1E1E;
+    color: #F5F2EB;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: -0.03em;
+    color: #C49A6C;
+}
+
+.hero-quote {
+    font-size: 32px;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: #F5F2EB;
+    font-weight: 300;
+}
+
+.hero-description {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 60px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 80px;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scroll-arrow {
+    color: #C49A6C;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* Fade-in animation */
+.fade-in {
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SECTION 2: EARLY REBELS
+   ============================================ */
+.early-rebels-section {
+    background: #F5F2EB;
+    color: #2A2A2A;
+}
+
+.quote-block {
+    text-align: center;
+    margin: 60px 0;
+    padding: 40px 20px;
+}
+
+.main-quote {
+    font-size: 36px;
+    font-style: italic;
+    line-height: 1.5;
+    color: #8B0000;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.quote-author {
+    font-size: 18px;
+    color: #666;
+    font-style: normal;
+}
+
+.content-text {
+    font-size: 20px;
+    line-height: 1.9;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    color: #2A2A2A;
+}
+
+.content-text p {
+    margin-bottom: 25px;
+}
+
+/* Heroine Cards */
+.heroine-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+    /* Prevent layout shifts during hover */
+    contain: layout style paint;
+}
+
+.heroine-card {
+    position: relative;
+    height: 500px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    /* GPU acceleration for smooth hover */
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.heroine-card:hover {
+    transform: translateZ(0) translateY(-10px);
+    -webkit-transform: translateZ(0) translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #C49A6C 0%, #8B0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* GPU acceleration for image container */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+.image-placeholder {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 40px 30px 30px;
+    color: white;
+    transform: translateZ(0) translateY(100%);
+    -webkit-transform: translateZ(0) translateY(100%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.heroine-card:hover .card-overlay {
+    transform: translateZ(0) translateY(0);
+    -webkit-transform: translateZ(0) translateY(0);
+}
+
+.card-quote {
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.card-author {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Modal Styles - Website Modal */
+.card-modal, .gallery-modal, .takeaways-modal, .modal, #attribution-modal {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.88) !important;
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    opacity: 0;
+    transition: opacity 0.3s ease-out !important;
+    pointer-events: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    /* GPU acceleration for smooth animation */
+    will-change: opacity;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.card-modal.active, .gallery-modal.active, .takeaways-modal.active, .modal.active, #attribution-modal.active {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 20px !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Ensure parent containers don't interfere */
+.heroine-card,
+.heroine-cards,
+.section-content,
+.section {
+    position: relative;
+    overflow: visible;
+}
+
+/* Prevent overflow from hiding modal */
+.heroine-card {
+    overflow: visible !important;
+}
+
+.modal-content {
+    background: #ffffff !important;
+    max-width: 850px !important;
+    width: calc(100% - 40px) !important;
+    padding: 50px 45px !important;
+    border-radius: 16px !important;
+    position: relative !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(196, 154, 108, 0.2) !important;
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out !important;
+    border: 3px solid;
+    border-image: linear-gradient(135deg, #C49A6C, #8B0000) 1;
+    margin: auto !important;
+    pointer-events: auto !important;
+    z-index: 100000 !important;
+    /* GPU acceleration for smooth animation */
+    will-change: transform, opacity;
+    transform: translateZ(0) scale(0.95) translateY(20px);
+    -webkit-transform: translateZ(0) scale(0.95) translateY(20px);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-modal.active .modal-content,
+.gallery-modal.active .modal-content,
+.takeaways-modal.active .modal-content,
+.modal.active .modal-content,
+#attribution-modal.active .modal-content {
+    transform: translateZ(0) scale(1) translateY(0) !important;
+    -webkit-transform: translateZ(0) scale(1) translateY(0) !important;
+    opacity: 1 !important;
+}
+
+/* Gradient border effect */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #C49A6C, #8B0000, #C49A6C);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.modal-close {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 36px;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
+
+.modal-close:hover {
+    color: #8B0000;
+    background: rgba(139, 0, 0, 0.1);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.modal-content h3 {
+    font-size: 38px;
+    margin-bottom: 30px;
+    color: #8B0000;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    position: relative;
+    padding-bottom: 18px;
+}
+
+.modal-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #C49A6C, #8B0000);
+    border-radius: 2px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   SECTION 3: RESISTANCE FIGHTERS
+   ============================================ */
+.resistance-section {
+    background: #8B0000;
+    color: #F5F2EB;
+}
+
+.resistance-section .section-title,
+.resistance-section .section-subtitle {
+    color: #F5F2EB;
+}
+
+.resistance-section .main-quote {
+    color: #C49A6C;
+}
+
+.resistance-section .content-text {
+    color: #F5F2EB;
+}
+
+/* Gallery Slider */
+.gallery-container {
+    margin-top: 80px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-container::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-slider {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    min-width: 500px;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(135deg, #C49A6C 0%, #8B0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-quote {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 30px;
+    color: white;
+}
+
+.gallery-quote p {
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.gallery-author {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ============================================
+   SECTION 4: SISTERHOOD
+   ============================================ */
+.sisterhood-section {
+    background: linear-gradient(135deg, #EDE4D3 0%, #9C7463 100%);
+    color: #2A2A2A;
+}
+
+.sisterhood-section .main-quote {
+    color: #8B0000;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    margin-top: 80px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slideshow-wrapper {
+    position: relative;
+    height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-image {
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(135deg, #EDE4D3 0%, #9C7463 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide-caption p {
+    font-size: 18px;
+}
+
+.slideshow-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.slide-btn {
+    background: rgba(255,255,255,0.3);
+    border: none;
+    color: white;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.slide-btn:hover {
+    background: rgba(255,255,255,0.5);
+}
+
+/* ============================================
+   SECTION 5: LEGACY
+   ============================================ */
+.legacy-section {
+    background: #F5F2EB;
+    color: #2A2A2A;
+}
+
+.legacy-section .main-quote {
+    color: #D8A7A7;
+}
+
+/* Modern Cards */
+.modern-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.modern-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modern-card h3 {
+    font-size: 24px;
+    color: #D8A7A7;
+    margin-bottom: 10px;
+}
+
+.modern-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #888;
+}
+
+/* Takeaways */
+.takeaways {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.takeaways-btn {
+    background: #D8A7A7;
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+}
+
+.takeaways-btn:hover {
+    background: #C49A6C;
+    transform: translateY(-2px);
+}
+
+.takeaways-list {
+    list-style: none;
+    text-align: left;
+    margin: 30px 0;
+}
+
+.takeaways-list li {
+    font-size: 20px;
+    line-height: 2;
+    padding-left: 30px;
+    position: relative;
+}
+
+.takeaways-list li:before {
+    content: "•";
+    color: #D8A7A7;
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+}
+
+.takeaways-quote {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    margin-top: 30px;
+    line-height: 1.8;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer-section {
+    background: #1E1E1E;
+    color: #F5F2EB;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.footer-quote {
+    font-size: 28px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #C49A6C;
+}
+
+.footer-translation {
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #C49A6C;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #F5F2EB;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .hero-quote {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+    
+    .main-quote {
+        font-size: 28px;
+    }
+    
+    .heroine-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-item {
+        min-width: 350px;
+        height: 500px;
+    }
+    
+    .modern-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   ADVANCED ANIMATIONS & EFFECTS
+   ============================================ */
+
+/* Particles Background */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.particles::before,
+.particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(196, 154, 108, 0.5);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.particles::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.particles::after {
+    left: 80%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100vh) translateX(50px);
+    }
+}
+
+/* Reveal Text Animation */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    animation: revealText 1.5s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.reveal-text-delay-1 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealText 1.2s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.reveal-text-delay-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealText 1.2s ease-out forwards;
+    animation-delay: 1.3s;
+}
+
+.reveal-text-delay-3 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealText 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Glow Effect */
+.hero-title {
+    text-shadow: 0 0 20px rgba(196, 154, 108, 0.5),
+                 0 0 40px rgba(196, 154, 108, 0.3),
+                 0 0 60px rgba(196, 154, 108, 0.2);
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px rgba(196, 154, 108, 0.5),
+                     0 0 40px rgba(196, 154, 108, 0.3),
+                     0 0 60px rgba(196, 154, 108, 0.2);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(196, 154, 108, 0.8),
+                     0 0 50px rgba(196, 154, 108, 0.5),
+                     0 0 70px rgba(196, 154, 108, 0.3);
+    }
+}
+
+/* Card Shine Effect */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: left;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    pointer-events: none;
+}
+
+.heroine-card:hover .card-shine {
+    left: 100%;
+}
+
+/* Gallery Overlay Animation */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Image Zoom on Hover */
+.card-image img,
+.gallery-image img,
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1);
+    will-change: transform;
+    transform: translateZ(0) scale(1);
+    -webkit-transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.heroine-card:hover .card-image img,
+.gallery-item:hover .gallery-image img {
+    transform: translateZ(0) scale(1.08);
+    -webkit-transform: translateZ(0) scale(1.08);
+    filter: brightness(0.85);
+}
+
+/* Slide Image Animation */
+.slide-image img {
+    animation: slideZoom 8s infinite;
+}
+
+.slide.active .slide-image img {
+    animation: slideZoom 8s infinite;
+}
+
+@keyframes slideZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Modal Scrollbar Styling */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #C49A6C, #8B0000);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #8B0000, #C49A6C);
+}
+
+/* Modern Card 3D Effect */
+.modern-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.modern-card:hover {
+    transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(216, 167, 167, 0.3);
+}
+
+/* Quote Block Animation */
+.quote-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(196, 154, 108, 0.1),
+        transparent
+    );
+    animation: quoteShine 3s infinite;
+}
+
+@keyframes quoteShine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Section Title Animation */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C49A6C, #8B0000);
+    animation: titleLine 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes titleLine {
+    to {
+        width: 80px;
+    }
+}
+
+/* Scroll Indicator Enhanced */
+.scroll-indicator {
+    position: relative;
+}
+
+.scroll-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(196, 154, 108, 0.3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Fade In On Scroll - Enhanced */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(5px);
+}
+
+.fade-in-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Slide In from Left */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide In from Right */
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale In Animation */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Rotate In Animation */
+.rotate-in {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.rotate-in.visible {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Blur In Animation */
+.blur-in {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 1s ease, filter 1s ease;
+}
+
+.blur-in.visible {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Stagger Animation for Cards */
+.heroine-cards .heroine-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.heroine-cards .heroine-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+/* Button Hover Glow */
+.takeaways-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.takeaways-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.takeaways-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Attribution Styles */
+.attribution {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(196, 154, 108, 0.2);
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.attribution a {
+    color: #8B0000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.attribution a:hover {
+    color: #C49A6C;
+    text-decoration: underline;
+}
+
+/* Modal Content Enhancement */
+.modal-content {
+    scrollbar-width: thin;
+    scrollbar-color: #C49A6C rgba(0, 0, 0, 0.05);
+}
+
+/* Modal Image Styling (if needed in future) */
+.modal-content img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 40px 30px;
+        max-width: 95%;
+        border-radius: 15px;
+    }
+    
+    .modal-content h3 {
+        font-size: 28px;
+    }
+    
+    .modal-content p {
+        font-size: 16px;
+    }
+    
+    .modal-close {
+        top: 15px;
+        right: 20px;
+        width: 35px;
+        height: 35px;
+        font-size: 30px;
+    }
+}
+
+.caption-attribution {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.caption-attribution a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.caption-attribution a:hover {
+    text-decoration: underline;
+}
+
+/* Figure and Figcaption Styles */
+figure {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+figure figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 12px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+figure:hover figcaption {
+    opacity: 1;
+}
+
+figure figcaption a {
+    color: #C49A6C;
+    text-decoration: none;
+}
+
+figure figcaption a:hover {
+    text-decoration: underline;
+}
+
+/* Hide figcaption in card-image and gallery-image (they have overlays) */
+.card-image figure figcaption,
+.gallery-image figure figcaption {
+    display: none;
+}
+
+/* Show figcaption in slideshow */
+.slide-image figure figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    font-size: 13px;
+    text-align: center;
+    opacity: 1;
+}
+
+/* Enhanced Image Styles */
+.card-image img,
+.gallery-image img,
+.slide-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.image-placeholder {
+    background: linear-gradient(
+        90deg,
+        rgba(196, 154, 108, 0.1) 0%,
+        rgba(196, 154, 108, 0.2) 50%,
+        rgba(196, 154, 108, 0.1) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Enhanced Section Transitions */
+.section {
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.02) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Typography Enhancements */
+.hero-quote {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+.main-quote {
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+}
+
+/* Remove duplicate hover styles - already defined above */
+
+/* Gallery Item Enhanced */
+.gallery-item {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+/* Center gallery when items fit in container */
+@media (min-width: 1100px) {
+    .gallery-container {
+        justify-content: center;
+    }
+    
+    .gallery-slider {
+        max-width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Responsive Animation Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 48px;
+        animation-duration: 1s;
+    }
+    
+    .reveal-text,
+    .reveal-text-delay-1,
+    .reveal-text-delay-2,
+    .reveal-text-delay-3 {
+        animation-duration: 0.8s;
+    }
+    
+    .fade-in-on-scroll {
+        transform: translateY(30px);
+    }
+}
+
