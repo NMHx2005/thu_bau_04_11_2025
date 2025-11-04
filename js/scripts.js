@@ -15,8 +15,20 @@ $(document).ready(function() {
     // Check if GSAP is loaded
     if (typeof gsap !== 'undefined') {
         // Set initial state for GSAP animation
-        gsap.set('.hero-title', { opacity: 0, y: 100, scale: 0.8 });
+        gsap.set('.title-word-1', { 
+            opacity: 0, 
+            y: 100, 
+            scale: 0.8,
+            rotationX: -90
+        });
+        gsap.set('.title-word-2', { 
+            opacity: 0, 
+            y: 100, 
+            scale: 0.8,
+            rotationX: -90
+        });
         gsap.set('.title-underline', { width: 0, opacity: 0 });
+        gsap.set('.title-glow', { scale: 0, opacity: 0 });
         gsap.set('.hero-quote', { opacity: 0, y: 50, scale: 0.95 });
         gsap.set('.hero-description', { opacity: 0, y: 30 });
         gsap.set('.scroll-indicator', { opacity: 0, y: 20 });
@@ -24,14 +36,28 @@ $(document).ready(function() {
         const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
         
         heroTl
-            .to('.hero-title', {
-                duration: 1.2,
+            .to('.title-word-1', {
+                duration: 1,
                 y: 0,
                 opacity: 1,
                 scale: 1,
                 rotationX: 0,
                 transformOrigin: "center bottom"
             })
+            .to('.title-word-2', {
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                rotationX: 0,
+                transformOrigin: "center bottom"
+            }, "-=0.7")
+            .to('.title-glow', {
+                duration: 1.5,
+                scale: 1,
+                opacity: 1,
+                ease: "power2.out"
+            }, "-=1")
             .to('.title-underline', {
                 duration: 1,
                 width: "60%",
@@ -65,9 +91,29 @@ $(document).ready(function() {
     
     // Hero title glow animation (only if GSAP loaded)
     if (typeof gsap !== 'undefined') {
-        gsap.to('.hero-title', {
+        // Title word glow animations
+        gsap.to('.title-word-1', {
             textShadow: "0 0 40px rgba(196, 154, 108, 0.8), 0 0 80px rgba(196, 154, 108, 0.5), 0 0 120px rgba(196, 154, 108, 0.3)",
             duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut"
+        });
+        
+        gsap.to('.title-word-2', {
+            textShadow: "0 0 50px rgba(245, 242, 235, 0.8), 0 0 100px rgba(245, 242, 235, 0.5), 0 0 150px rgba(245, 242, 235, 0.3)",
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut",
+            delay: 0.3
+        });
+        
+        // Title glow orb animation
+        gsap.to('.title-glow', {
+            scale: 1.2,
+            opacity: 0.6,
+            duration: 3,
             repeat: -1,
             yoyo: true,
             ease: "power2.inOut"
@@ -126,6 +172,63 @@ $(document).ready(function() {
                 end: "bottom top",
                 scrub: true
             }
+        });
+        
+        // Mouse parallax effect for orbs
+        $(document).on('mousemove', function(e) {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            gsap.to('.orb-1', {
+                x: (mouseX - 0.5) * 100,
+                y: (mouseY - 0.5) * 100,
+                duration: 2,
+                ease: "power2.out"
+            });
+            
+            gsap.to('.orb-2', {
+                x: (mouseX - 0.5) * -80,
+                y: (mouseY - 0.5) * -80,
+                duration: 2.5,
+                ease: "power2.out"
+            });
+            
+            gsap.to('.orb-3', {
+                x: (mouseX - 0.5) * 60,
+                y: (mouseY - 0.5) * 60,
+                duration: 2.2,
+                ease: "power2.out"
+            });
+        });
+        
+        // Animate glow orbs independently
+        gsap.to('.orb-1', {
+            scale: 1.2,
+            opacity: 0.5,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        
+        gsap.to('.orb-2', {
+            scale: 1.3,
+            opacity: 0.4,
+            duration: 5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            delay: 1
+        });
+        
+        gsap.to('.orb-3', {
+            scale: 1.15,
+            opacity: 0.45,
+            duration: 4.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut",
+            delay: 2
         });
     }
 
