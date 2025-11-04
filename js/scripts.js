@@ -1,60 +1,438 @@
 // ============================================
-// PARALLAX EFFECT FOR HERO SECTION
+// GSAP ANIMATIONS - ADVANCED EFFECTS
 // ============================================
 $(document).ready(function() {
     
-    // Enhanced parallax with smooth scrolling
-    let ticking = false;
-    
-    function updateParallax() {
-        const scrolled = $(window).scrollTop();
-        const parallax = $('.parallax-bg');
-        const speed = scrolled * 0.3;
-        parallax.css('transform', 'translateY(' + speed + 'px) scale(1.1)');
-        ticking = false;
+    // Register GSAP plugins (only if GSAP is loaded)
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
     }
     
-    $(window).on('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    });
-
     // ============================================
-    // ADVANCED SCROLL ANIMATIONS
+    // HERO SECTION - SPECIAL ANIMATIONS
     // ============================================
-    function checkScroll() {
-        const scrollTop = $(window).scrollTop();
-        const windowHeight = $(window).height();
-        const triggerPoint = windowHeight * 0.75; // Trigger when 75% visible
+    
+    // Check if GSAP is loaded
+    if (typeof gsap !== 'undefined') {
+        // Set initial state for GSAP animation
+        gsap.set('.hero-title', { opacity: 0, y: 100, scale: 0.8 });
+        gsap.set('.title-underline', { width: 0, opacity: 0 });
+        gsap.set('.hero-quote', { opacity: 0, y: 50, scale: 0.95 });
+        gsap.set('.hero-description', { opacity: 0, y: 30 });
+        gsap.set('.scroll-indicator', { opacity: 0, y: 20 });
         
-        // Check all animation classes
-        $('.fade-in-on-scroll, .slide-in-left, .slide-in-right, .scale-in, .rotate-in, .blur-in').each(function() {
-            const elementTop = $(this).offset().top;
-            const elementHeight = $(this).outerHeight();
-            const elementBottom = elementTop + elementHeight;
-            
-            // Check if element is in viewport
-            if (elementTop < scrollTop + triggerPoint && elementBottom > scrollTop) {
-                $(this).addClass('visible');
+        const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        
+        heroTl
+            .to('.hero-title', {
+                duration: 1.2,
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                rotationX: 0,
+                transformOrigin: "center bottom"
+            })
+            .to('.title-underline', {
+                duration: 1,
+                width: "60%",
+                opacity: 1
+            }, "-=0.5")
+            .to('.hero-quote', {
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                scale: 1
+            }, "-=0.3")
+            .to('.hero-description', {
+                duration: 0.8,
+                y: 0,
+                opacity: 1,
+                stagger: 0.2
+            }, "-=0.5")
+            .to('.scroll-indicator', {
+                duration: 0.8,
+                y: 0,
+                opacity: 1
+            }, "-=0.3");
+    } else {
+        // Fallback if GSAP doesn't load
+        $('.hero-text').addClass('no-gsap');
+        $('.hero-title, .hero-quote, .hero-description, .scroll-indicator').css({
+            'opacity': '1',
+            'transform': 'translateY(0)'
+        });
+    }
+    
+    // Hero title glow animation (only if GSAP loaded)
+    if (typeof gsap !== 'undefined') {
+        gsap.to('.hero-title', {
+            textShadow: "0 0 40px rgba(196, 154, 108, 0.8), 0 0 80px rgba(196, 154, 108, 0.5), 0 0 120px rgba(196, 154, 108, 0.3)",
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut"
+        });
+        
+        // Hero shapes animation
+        gsap.to('.shape-1', {
+            x: 100,
+            y: -100,
+            rotation: 360,
+            duration: 20,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        
+        gsap.to('.shape-2', {
+            x: -150,
+            y: 150,
+            rotation: -360,
+            duration: 25,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        
+        gsap.to('.shape-3', {
+            x: 50,
+            y: -50,
+            rotation: 180,
+            duration: 15,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        
+        // Enhanced parallax with GSAP
+        gsap.to('.parallax-bg', {
+            yPercent: 50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: '#hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
             }
         });
         
-        // Parallax effect for hero section
-        const heroSection = $('#hero');
-        if (heroSection.length) {
-            const heroTop = heroSection.offset().top;
-            const heroHeight = heroSection.outerHeight();
-            const scrollRatio = Math.max(0, Math.min(1, (scrollTop - heroTop + windowHeight) / (heroHeight + windowHeight)));
-            
-            // Parallax background
-            $('.parallax-bg').css('transform', 'translateY(' + (scrollRatio * 100) + 'px)');
-        }
+        // Parallax particles
+        gsap.to('.particles', {
+            yPercent: 30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: '#hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
     }
 
-    $(window).on('scroll', checkScroll);
-    checkScroll(); // Check on page load
+    // ============================================
+    // SECTION 2: EARLY REBELS - COLUMN ANIMATIONS
+    // ============================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        // Set initial state for animations
+        gsap.set('.early-rebels-section .section-header, .early-rebels-section .quote-block, .early-rebels-section .text-column', {
+            opacity: 0,
+            y: 60
+        });
+        gsap.set('.section-number', { opacity: 0, scale: 0 });
+        gsap.set('.quote-icon', { opacity: 0, scale: 0 });
+        gsap.set('.text-column', { opacity: 0, x: -100 });
+        
+        gsap.utils.toArray('.early-rebels-section .section-header, .early-rebels-section .quote-block, .early-rebels-section .text-column, .early-rebels-section .heroine-cards').forEach((elem, i) => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+        });
+        
+        // Section number animation
+        gsap.to('.section-number', {
+            scrollTrigger: {
+                trigger: '.section-number',
+                start: "top 80%"
+            },
+            duration: 1.5,
+            scale: 1,
+            opacity: 1,
+            rotation: 0,
+            ease: "back.out(1.7)"
+        });
+        
+        // Quote icon animation
+        gsap.to('.quote-icon', {
+            scrollTrigger: {
+                trigger: '.quote-block',
+                start: "top 80%"
+            },
+            duration: 1,
+            scale: 1,
+            opacity: 1,
+            ease: "elastic.out(1, 0.5)"
+        });
+        
+        // Text columns stagger
+        gsap.to('.text-column', {
+            scrollTrigger: {
+                trigger: '.content-text',
+                start: "top 75%"
+            },
+            duration: 1,
+            x: 0,
+            opacity: 1,
+            stagger: 0.3,
+            ease: "power3.out"
+        });
+    } else {
+        // Fallback if GSAP doesn't load - ensure visibility
+        $('.early-rebels-section .section-header, .early-rebels-section .quote-block, .early-rebels-section .text-column').css({
+            'opacity': '1',
+            'transform': 'translateY(0)'
+        });
+        $('.section-number, .quote-icon').css({
+            'opacity': '1',
+            'transform': 'scale(1)'
+        });
+    }
+    
+    // ============================================
+    // SECTION 3: RESISTANCE - HIGHLIGHT ANIMATIONS
+    // ============================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // Set initial states
+    gsap.set('.resistance-section .section-header', { opacity: 0, y: 80 });
+    gsap.set('.text-highlight', { opacity: 0, scale: 0.9, y: 50 });
+    gsap.set('.highlight-text', { opacity: 0, scale: 1.2 });
+    gsap.set('.resistance-section .content-text p', { opacity: 0, x: 100 });
+    gsap.set('.gallery-item', { opacity: 0, x: 200 });
+    
+    gsap.to('.resistance-section .section-header', {
+        scrollTrigger: {
+            trigger: '.resistance-section',
+            start: "top 80%"
+        },
+        duration: 1.2,
+        y: 0,
+        opacity: 1,
+        ease: "power3.out"
+    });
+    
+    gsap.to('.text-highlight', {
+        scrollTrigger: {
+            trigger: '.text-highlight',
+            start: "top 80%"
+        },
+        duration: 1,
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        ease: "power3.out"
+    });
+    
+    gsap.to('.highlight-text', {
+        scrollTrigger: {
+            trigger: '.highlight-text',
+            start: "top 80%"
+        },
+        duration: 1.5,
+        scale: 1,
+        opacity: 1,
+        ease: "elastic.out(1, 0.5)"
+    });
+    
+    gsap.to('.resistance-section .content-text p', {
+        scrollTrigger: {
+            trigger: '.resistance-section .content-text',
+            start: "top 75%"
+        },
+        duration: 0.8,
+        x: 0,
+        opacity: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+    
+    // Gallery items animation
+    gsap.to('.gallery-item', {
+        scrollTrigger: {
+            trigger: '.gallery-container',
+            start: "top 80%"
+        },
+        duration: 1,
+        x: 0,
+        opacity: 1,
+        stagger: 0.3,
+        ease: "power3.out"
+    });
+    } else {
+        // Fallback for resistance section
+        $('.resistance-section .section-header, .text-highlight, .resistance-section .content-text p, .gallery-item').css({
+            'opacity': '1',
+            'transform': 'translate(0, 0)'
+        });
+    }
+    
+    // ============================================
+    // SECTION 4: SISTERHOOD - TIMELINE ANIMATIONS
+    // ============================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // Set initial states
+    gsap.set('.timeline-item', { opacity: 0, x: -150 });
+    gsap.set('.timeline-dot', { opacity: 0, scale: 0 });
+    
+    gsap.to('.timeline-item', {
+        scrollTrigger: {
+            trigger: '.text-timeline',
+            start: "top 75%"
+        },
+        duration: 1,
+        x: 0,
+        opacity: 1,
+        stagger: 0.3,
+        ease: "power3.out"
+    });
+    
+    gsap.to('.timeline-dot', {
+        scrollTrigger: {
+            trigger: '.timeline-item',
+            start: "top 80%"
+        },
+        duration: 0.8,
+        scale: 1,
+        opacity: 1,
+        stagger: 0.2,
+        ease: "back.out(1.7)"
+    });
+    } else {
+        // Fallback for timeline
+        $('.timeline-item, .timeline-dot').css({
+            'opacity': '1',
+            'transform': 'translate(0, 0) scale(1)'
+        });
+    }
+    
+    // ============================================
+    // SECTION 5: LEGACY - GRID ANIMATIONS
+    // ============================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    // Set initial states
+    gsap.set('.grid-item', { opacity: 0, y: 80, scale: 0.9 });
+    gsap.set('.grid-label', { opacity: 0, x: -30 });
+    
+    gsap.to('.grid-item', {
+        scrollTrigger: {
+            trigger: '.text-grid',
+            start: "top 80%"
+        },
+        duration: 1,
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        stagger: {
+            amount: 0.6,
+            from: "start"
+        },
+        ease: "power3.out"
+    });
+    
+    gsap.to('.grid-label', {
+        scrollTrigger: {
+            trigger: '.grid-item',
+            start: "top 80%"
+        },
+        duration: 0.8,
+        x: 0,
+        opacity: 1,
+        stagger: 0.1,
+        ease: "power3.out"
+    });
+    } else {
+        // Fallback for grid
+        $('.grid-item, .grid-label').css({
+            'opacity': '1',
+            'transform': 'translate(0, 0) scale(1)'
+        });
+    }
+    
+    // ============================================
+    // ENHANCED SCROLL ANIMATIONS WITH GSAP
+    // ============================================
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        // Set initial states
+        gsap.set('.section-title, .section-subtitle', { opacity: 0, y: 50 });
+        gsap.set('.heroine-card', { opacity: 0, y: 100, scale: 0.8 });
+        gsap.set('.modern-card', { opacity: 0, y: 60 });
+        gsap.set('.slideshow-container', { opacity: 0, scale: 0.95 });
+        
+        gsap.utils.toArray('.section-title, .section-subtitle').forEach((elem) => {
+            gsap.to(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%"
+                },
+                duration: 1,
+                y: 0,
+                opacity: 1,
+                ease: "power3.out"
+            });
+        });
+        
+        // Heroine cards stagger animation
+        gsap.to('.heroine-card', {
+            scrollTrigger: {
+                trigger: '.heroine-cards',
+                start: "top 80%"
+            },
+            duration: 1,
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        });
+        
+        // Modern cards animation
+        gsap.to('.modern-card', {
+            scrollTrigger: {
+                trigger: '.modern-cards',
+                start: "top 80%"
+            },
+            duration: 1,
+            y: 0,
+            opacity: 1,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+        
+        // Slideshow animation
+        gsap.to('.slideshow-container', {
+            scrollTrigger: {
+                trigger: '.slideshow-container',
+                start: "top 80%"
+            },
+            duration: 1.2,
+            scale: 1,
+            opacity: 1,
+            ease: "power3.out"
+        });
+    } else {
+        // Fallback for all sections
+        $('.section-title, .section-subtitle, .heroine-card, .modern-card, .slideshow-container').css({
+            'opacity': '1',
+            'transform': 'translate(0, 0) scale(1)'
+        });
+    } // End GSAP check
 
     // ============================================
     // HEROINE CARDS - MODAL FUNCTIONALITY
